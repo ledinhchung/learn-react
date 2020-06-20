@@ -1,48 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
+import ExerciseList from "./components/exercise/list.component";
+import EditExercise from "./components/exercise/edit.component";
+import CreateExercise from "./components/exercise/create.component";
+import CreateUser from "./components/user/create.component";
+import Navbar from "./components/common/navbar.component";
 
-    this.state = {
-      name: 'Hello',
-      count: 0
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState(state => ({
-      count: state.count + 1
-    }))
-  }
-
+export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <h1 id="hello_world">Hello world { this.props.name }</h1>
-          <button title="count_btn" onClick={ this.handleClick }>Click me</button>
-          <p title="counter">{this.state.count}</p>
-        </header>
-      </div>
+      <Router>
+        <Navbar />
+        <br />
+        <Route path="/" exact component={ExerciseList} />
+        <Route path="/edit/:id" exact component={EditExercise} />
+        <Route path="/add" exact component={CreateExercise} />
+        <Route path="/user" exact component={CreateUser} />
+      </Router>
     );
   }
 }
-
-export default App
