@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default class CreateUser extends Component {
+export default class ListUser extends Component {
 
   render() {
     return (
-      <h1>Hello from ExerciseList component</h1>
+      <div className="container">
+        <h1>Hello from List User component</h1>
+      </div>
     )
   }
 }

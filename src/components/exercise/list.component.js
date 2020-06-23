@@ -4,7 +4,9 @@ export default class ExerciseList extends Component {
 
   render() {
     return (
-      <h1>Hello from ExerciseList component</h1>
+      <div className="container">
+        <h1>Hello from ExerciseList component</h1>
+      </div>
     )
   }
 }
